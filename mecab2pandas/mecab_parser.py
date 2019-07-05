@@ -1,5 +1,4 @@
 """Mecab parser."""
-import functools as func
 import subprocess
 import sys
 from typing import List, Optional
@@ -72,12 +71,13 @@ class MecabParser:
             if line == "EOS":
                 break
 
-            parsed = func.reduce(lambda x, y: x + y, map(lambda x: x.split(","), line.split("\t")))
-            parsed_length = len(self.MECAB_COLUMNS)
-            if len(parsed) < parsed_length:
-                parsed.extend([None] * (parsed_length - len(parsed)))
+            word, properties = line.split("\t")
+            properties = [value if value != "*" else None for value in properties.split(",")]
+            properties_length = len(self.MECAB_COLUMNS) - 1
+            if len(properties) < properties_length:
+                properties.extend([None] * (properties_length - len(properties)))
 
-            formed.append(parsed)
+            formed.append([word] + properties)
 
         return pd.DataFrame(formed, columns=self.MECAB_COLUMNS)
 
