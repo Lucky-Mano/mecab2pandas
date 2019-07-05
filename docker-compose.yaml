@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  jupyter:
+    image: mecab2pandas_test
+    build: ./
+    ports:
+      - 9000:9000
