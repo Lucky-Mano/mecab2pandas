@@ -15,7 +15,7 @@ class MecabParserTestCase(TestCase):
         eq_(1, len(dics))
 
     def parse_using_default_dictionary_test(self):
-        """Test for parse result using neologd."""
+        """Test for parse result using default dictionary."""
         parser = MecabParser()
         df = parser.parse("特急はくたか")
 

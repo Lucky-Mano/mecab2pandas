@@ -13,11 +13,12 @@ RUN apt-get update \
   && apt-get upgrade -y \
   && apt-get install build-essential git make curl xz-utils file swig mecab libmecab-dev mecab-ipadic-utf8 -y \
   && pip install -U --no-cache-dir pip setuptools jupyterlab \
-  && pip install -e . \
   && git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
   && cd mecab-ipadic-neologd \
   && ./bin/install-mecab-ipadic-neologd -n -u -y \
   && apt-get purge build-essential -y
+
+RUN pip install -e .
 
 COPY ./notebooks ${DIR}/notebooks
 COPY ./tests ${DIR}/tests
