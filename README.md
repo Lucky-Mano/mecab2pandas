@@ -11,7 +11,7 @@ Parser by MeCab into pandas DataFrame.
   `from mecab2pandas import MecabParser`
 
 ## Example
-See [Simple Usage.ipynb](https://github.com/Lucky-Mano/mecab2pandas/blob/master/notebooks/Simple%20Usage.ipynb)
+See [SimpleUsage.ipynb](https://github.com/Lucky-Mano/mecab2pandas/blob/master/notebooks/SimpleUsage.ipynb)
 
 ## Trial
 1. Install docker-compose
