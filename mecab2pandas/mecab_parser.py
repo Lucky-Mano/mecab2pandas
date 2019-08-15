@@ -9,6 +9,21 @@ import pandas as pd
 from mecab2pandas.exception import NotSupportOSError
 
 
+def listup_dictionaries() -> List[str]:
+    """List up available dictionaries name.
+
+    Returns:
+        The list of dictionaries name.
+
+    """
+    if sys.platform == "win32":
+        raise NotSupportOSError(
+            "Not support for Windows, because of mecab-config is not in windows."
+        )
+
+    return subprocess.getoutput("ls `mecab-config --dicdir`").split("\n")
+
+
 class MecabParser:
     r"""Parser class by MeCab into pandas DataFrame.
 
@@ -80,18 +95,3 @@ class MecabParser:
             formed.append([word] + properties)
 
         return pd.DataFrame(formed, columns=self.MECAB_COLUMNS)
-
-    @staticmethod
-    def listup_dictionaries() -> List[str]:
-        """List up available dictionaries name.
-
-        Returns:
-            The list of dictionaries name.
-
-        """
-        if sys.platform == "win32":
-            raise NotSupportOSError(
-                "Not support for Windows, because of mecab-config is not in windows."
-            )
-
-        return subprocess.getoutput("ls `mecab-config --dicdir`").split("\n")

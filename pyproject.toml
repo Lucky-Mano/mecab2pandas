@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "mecab2pandas"
-version = "0.1.1"
+version = "0.2.0"
 description = "MeCab to pandas"
 authors = ["Lucky <phatbowie@gmail.com>"]
 homepage = "https://github.com/Lucky-Mano/mecab2pandas"
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 mecab-python3 = "^0.996.2"
 pandas = "^0.24.2"
 
