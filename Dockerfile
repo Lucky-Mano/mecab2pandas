@@ -6,9 +6,6 @@ ENV DIR=/opt
 
 WORKDIR ${DIR}
 
-COPY ./mecab2pandas ${DIR}/mecab2pandas
-COPY ./setup.py ${DIR}/setup.py
-
 RUN apt-get update \
   && apt-get upgrade -y \
   && apt-get install build-essential git make curl xz-utils file swig mecab libmecab-dev mecab-ipadic-utf8 -y \
@@ -17,6 +14,9 @@ RUN apt-get update \
   && cd mecab-ipadic-neologd \
   && ./bin/install-mecab-ipadic-neologd -n -u -y \
   && apt-get purge build-essential -y
+
+COPY ./mecab2pandas ${DIR}/mecab2pandas
+COPY ./setup.py ${DIR}/setup.py
 
 RUN pip install -e .
 

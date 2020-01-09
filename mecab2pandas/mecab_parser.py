@@ -96,11 +96,14 @@ class MecabParser:
 
         return pd.DataFrame(formed, columns=self.MECAB_COLUMNS)
 
-    def wakachi(self, target: Union[str, Iterable[str]]) -> List[str]:
+    def wakachi(
+        self, target: Union[str, Iterable[str]], use_column: str = "original_form"
+    ) -> List[str]:
         """Make Wakachi Gaki.
 
         Args:
             target: str or Iterable of str.
+            use_column: column name to use Wakachi Gaki.
 
         Returns:
             the ist of Wakachi Gaki sentence.
@@ -115,9 +118,7 @@ class MecabParser:
             row_words: List[str] = []
             for _, row in parsed.iterrows():
                 row_words.append(
-                    row["original_form"]
-                    if row["original_form"] is not None
-                    else row["surface_form"]
+                    row[use_column] if row[use_column] is not None else row["surface_form"]
                 )
 
             parsed_list.append(row_words)
