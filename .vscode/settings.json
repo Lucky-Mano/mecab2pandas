@@ -14,5 +14,5 @@
     "python.linting.mypyEnabled": true,
     "python.linting.lintOnSave": true,
     "python.formatting.provider": "black",
-    "python.pythonPath": "~/Library/Caches/pypoetry/virtualenvs/mecab2pandas-py3.7/bin/python",
+    "python.pythonPath": "~/Library/Caches/pypoetry/virtualenvs/mecab2pandas-NPieRP5I-py3.7/bin/python",
 }

@@ -1,7 +1,7 @@
 """Mecab parser."""
 import subprocess
 import sys
-from typing import List, Optional
+from typing import Iterable, List, Optional, Union
 
 import MeCab
 import pandas as pd
@@ -95,3 +95,31 @@ class MecabParser:
             formed.append([word] + properties)
 
         return pd.DataFrame(formed, columns=self.MECAB_COLUMNS)
+
+    def wakachi(self, target: Union[str, Iterable[str]]) -> List[str]:
+        """Make Wakachi Gaki.
+
+        Args:
+            target: str or Iterable of str.
+
+        Returns:
+            the ist of Wakachi Gaki sentence.
+
+        """
+        data = [target] if isinstance(target, str) else target
+
+        parsed_list: List[List[str]] = []
+        for text in data:
+            parsed = self.parse(text)
+
+            row_words: List[str] = []
+            for _, row in parsed.iterrows():
+                row_words.append(
+                    row["original_form"]
+                    if row["original_form"] is not None
+                    else row["surface_form"]
+                )
+
+            parsed_list.append(row_words)
+
+        return list(map(" ".join, parsed_list))

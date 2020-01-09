@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mecab2pandas"
-version = "0.2.0"
+version = "0.2.2"
 description = "MeCab to pandas"
 authors = ["Lucky <phatbowie@gmail.com>"]
 homepage = "https://github.com/Lucky-Mano/mecab2pandas"
@@ -8,17 +8,17 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-mecab-python3 = "^0.996.2"
-pandas = "^0.24.2"
+mecab-python3 = "*"
+pandas = "*"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.6"
-pydocstyle = "^3.0"
-nose = "^1.3"
-isort = "^4.3"
-pre-commit = "^1.17"
-mypy = "^0.711.0"
-black = { version="^19.3b0", allows-prereleases = true }
+flake8 = "*"
+pydocstyle = "*"
+nose = "*"
+isort = "*"
+pre-commit = "*"
+mypy = "*"
+black = { version="*", allow-prereleases = true }
 
 [tool.black]
 line-length = 100
