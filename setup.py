@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="mecab2pandas",
-    version="0.1.1",
+    version="0.2.2",
     author="Lucky-Mano",
     author_email="phatbowie@gmail.com",
     url="https://github.com/Lucky-Mano/mecab2pandas",
