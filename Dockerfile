@@ -13,6 +13,7 @@ RUN apt-get update \
   && git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
   && cd mecab-ipadic-neologd \
   && ./bin/install-mecab-ipadic-neologd -n -u -y \
+  && cp /etc/mecabrc /usr/local/etc/mecabrc \
   && apt-get purge build-essential -y
 
 COPY ./mecab2pandas ${DIR}/mecab2pandas
